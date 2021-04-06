@@ -1,0 +1,6 @@
+<div *ngIf="vaccine">
+  <h2>Detalji o cjepivu {{vaccine.manufacturerName}}</h2>
+  <div><span>Proizvođač: {{vaccine.manufacturerName}}</span></div>
+  <div><span>Broj doza koje pacijent treba primiti: {{vaccine.requiredNumberOfShots}}</span></div>
+  <div *ngIf="vaccine.requiredNumberOfShots > 1"><span>Obavezno pričekati 3-4 tjedna između doza.</span></div>
+</div>
