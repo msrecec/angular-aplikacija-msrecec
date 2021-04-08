@@ -6,3 +6,4 @@
 </ul>
 
 <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
+<app-vaccine-info *ngIf="selectedVaccine ? selectedVaccine.manufacturerName === 'Gamaleya Research Institute' : false"></app-vaccine-info>
