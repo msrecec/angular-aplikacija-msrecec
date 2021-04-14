@@ -4,6 +4,7 @@
   <div><span>Broj doza koje pacijent treba primiti: {{vaccine.requiredNumberOfShots}}</span></div>
   <div *ngIf="vaccine.requiredNumberOfShots > 1"><span>Obavezno pričekati 3-4 tjedna između doza.</span></div>
 </div>
+<app-vaccine-info *ngIf="vaccine ? !vaccine.approved : false"></app-vaccine-info>
 <nav>
-  <a routerLink="/vaccines">go back</a>
+  <a (click)="backClicked()">go back</a>
 </nav>

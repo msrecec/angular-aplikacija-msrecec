@@ -1,5 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Vaccine } from '../vaccine';
+import { VaccineService } from '../vaccine.service';
 
 @Component({
   selector: 'app-vaccine-detail',
@@ -8,11 +11,33 @@ import { Vaccine } from '../vaccine';
 })
 export class VaccineDetailComponent implements OnInit {
 
-  @Input() vaccine: Vaccine | undefined;
+  vaccine: Vaccine | undefined;
 
-  constructor() { }
+  private researchName: String | '';
+
+
+  constructor(private _location: Location, private vaccineService: VaccineService, private route: ActivatedRoute) {
+
+    this.researchName = '';
+
+  }
+
+  backClicked() {
+    this._location.back();
+  }
+
+
+  getVaccine(): void {
+    this.vaccineService.getVaccineByResearchName(this.researchName).subscribe(v => this.vaccine = v);
+  }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.researchName = params['researchName'];
+    });
+
+    this.getVaccine();
+
   }
 
 }

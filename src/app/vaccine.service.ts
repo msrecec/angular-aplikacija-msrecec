@@ -44,6 +44,14 @@ export class VaccineService {
     );
   }
 
+  getVaccineByResearchName(researchName: String): Observable<Vaccine> {
+    const url = `${this.vaccinesUrl}/${researchName}`;
+    return this.http.get<Vaccine>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`fetched vaccine researchName=${researchName}`)),
+      catchError(this.handleError<Vaccine>('getVaccine'))
+    )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation);
