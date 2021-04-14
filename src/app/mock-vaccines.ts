@@ -1,9 +1,9 @@
-import { Vaccine } from './vaccine';
+// import { Vaccine } from './vaccine';
 
-export const VACCINES: Vaccine[] = [
-  {manufacturerName: "Pfizer-BioNTech", requiredNumberOfShots: 2, approved: true},
-  {manufacturerName: "Moderna", requiredNumberOfShots: 2, approved: true},
-  {manufacturerName: "Johnson & Johnson", requiredNumberOfShots: 1, approved: true},
-  {manufacturerName: "AstraZeneca", requiredNumberOfShots: 1, approved: true},
-  {manufacturerName: "Gamaleya Research Institute", requiredNumberOfShots: 1, approved: false},
-];
+// export const VACCINES: Vaccine[] = [
+//   {researchName: '', manufacturerName: "Pfizer-BioNTech", vaccineType: "", requiredNumberOfShots: 2, availableNumberOfShots: 1, approved: true},
+//   {researchName: '', manufacturerName: "Moderna", vaccineType: "", requiredNumberOfShots: 2, availableNumberOfShots: 1, approved: true},
+//   {researchName: '', manufacturerName: "Johnson & Johnson", vaccineType: "", requiredNumberOfShots: 1, availableNumberOfShots: 1, approved: true},
+//   {researchName: '', manufacturerName: "AstraZeneca", vaccineType: "", requiredNumberOfShots: 1, availableNumberOfShots: 1, approved: true},
+//   {researchName: '', manufacturerName: "Gamaleya Research Institute", vaccineType: "", requiredNumberOfShots: 1, availableNumberOfShots: 1, approved: false},
+// ];

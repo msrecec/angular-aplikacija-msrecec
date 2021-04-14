@@ -1,7 +1,7 @@
 .vaccines {
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 25em;
 }
 .vaccines li {
   cursor: pointer;
@@ -10,7 +10,10 @@
   background-color: #EEE;
   border-radius: 4px;
   margin: 1rem 0rem;
-  width: 20rem;
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .vaccines li:hover {
   color: #2c3a41;
@@ -34,8 +37,37 @@
   font-size: large;
   color: white;
   background-color:#405061;
+  padding: 1rem;
+  border-radius: 4px 0 0 4px;
+  margin: 0;
+}
+
+.vaccines .badge-light {
+  display: inline-block;
+  font-size: large;
+  color: #405061;
+  background-color: inherit;
   padding: 0.8rem;
   border-radius: 4px 0 0 4px;
   margin: 0;
 }
+
+.vaccines .badge-light-delete {
+  display: inline-block;
+  font-size: large;
+  color: white;
+  background-color:#405061;
+  padding: 0.8rem;
+  border-radius: 0px 4px 4px 0px;
+  margin: 0;
+}
+
+.vaccines .badge-light-delete:hover {
+  background-color: #505050;
+  color: white;
+}
+
+
+
+
 

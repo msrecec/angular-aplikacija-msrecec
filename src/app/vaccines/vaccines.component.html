@@ -1,9 +1,62 @@
 <h2>Cjepiva</h2>
 <ul class="vaccines">
   <li *ngFor="let vaccine of vaccines" (click)="onSelect(vaccine)" [class.selected]="vaccine === selectedVaccine">
-    <span class="badge">{{vaccine.manufacturerName}}</span>
+    <span class="badge">{{vaccine.researchName}}</span><span class="badge-light">{{vaccine.manufacturerName}}</span><span (click)="delete(vaccine)" class="badge-light-delete">X</span>
   </li>
 </ul>
 
 <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
 <app-vaccine-info *ngIf="selectedVaccine ? !selectedVaccine.approved : false"></app-vaccine-info>
+<div>
+  <h3>Unesi novo cijepivo</h3>
+  <div>
+    <label>Istraživački naziv:
+      <div>
+        <input #researchName />
+      </div>
+    </label>
+    <br />
+    <label>Naziv proizvođača:
+      <div>
+        <input #manufacturerName />
+      </div>
+    </label>
+    <br />
+    <label for="vaccines">Tip cjepiva:
+      <br />
+      <select name="vaccines" id="vaccines">
+        <option #vaccineTypeMRNA value="MRNA">MRNA</option>
+        <option #vaccineTypeViralVector value="ViralVector" >ViralVector</option>
+      </select>
+    </label>
+    <br />
+    <label for="approved">Odobreno od EMA
+      <input #approved type="checkbox" id="approved" name="approved" >
+    </label>
+    <br />
+    <label>Broj doza potrebnih za administraciju cjepiva:
+      <div>
+        <input #requiredNumberOfShots type="number" min="1" />
+      </div>
+    </label>
+    <br />
+    <label>Broj dostupnih doza:
+      <div>
+        <input type="number" #availableNumberOfShots min="0" />
+      </div>
+    </label>
+  </div>
+  <button (click)="
+  add(researchName.value, manufacturerName.value,
+  vaccineTypeViralVector.selected ? vaccineTypeViralVector.value : vaccineTypeMRNA.value,
+  +requiredNumberOfShots.value,
+  +availableNumberOfShots.value,
+  approved.checked);
+  researchName.value = '';
+  manufacturerName.value = '';
+  vaccineTypeViralVector.selected = false;
+  vaccineTypeMRNA.selected = true;
+  availableNumberOfShots.value = '';
+  requiredNumberOfShots.value = '';
+  approved.checked = false;">Unesi cijepivo</button>
+</div>
