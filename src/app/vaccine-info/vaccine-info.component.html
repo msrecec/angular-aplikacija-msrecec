@@ -1,1 +1,3 @@
-<h3><b>Inicijalna narudžba moguća tek nakon odobrenja EMA-e</b></h3>
+<h3 *ngIf="vaccine ? !vaccine.approved : false">
+  <b>Inicijalna narudžba moguća tek nakon odobrenja EMA-e</b>
+</h3>
