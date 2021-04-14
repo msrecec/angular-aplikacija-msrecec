@@ -11,6 +11,9 @@
   border-radius: 4px;
   margin: 1rem 0rem;
   width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .vaccines li:hover {
   color: #2c3a41;
@@ -57,6 +60,7 @@
   padding: 0.8rem;
   border-radius: 0px 4px 4px 0px;
   margin: 0;
+  z-index: 10000 !important;
 }
 
 .vaccines .badge-light-delete:hover {
@@ -65,10 +69,10 @@
 }
 
 a {
-  width: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* width: auto; */
+  /* display: flex; */
+  /* justify-content: space-between;
+  align-items: center; */
   text-decoration: none;
 }
 

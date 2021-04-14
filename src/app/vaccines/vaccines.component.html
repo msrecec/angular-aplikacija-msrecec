@@ -1,7 +1,11 @@
 <h2>Cjepiva</h2>
 <ul class="vaccines">
   <li *ngFor="let vaccine of vaccines" (click)="onSelect(vaccine)" [class.selected]="vaccine === selectedVaccine">
-    <a routerLink="/detail/{{vaccine.researchName}}"><span class="badge">{{vaccine.researchName}}</span><span class="badge-light">{{vaccine.manufacturerName}}</span><span (click)="delete(vaccine)" class="badge-light-delete">X</span></a>
+    <a routerLink="/detail/{{vaccine.researchName}}">
+      <span class="badge">{{vaccine.researchName}}</span>
+      <span class="badge-light">{{vaccine.manufacturerName}}</span>
+    </a>
+    <span (click)="delete(vaccine)" class="badge-light-delete">X</span>
   </li>
 </ul>
 
