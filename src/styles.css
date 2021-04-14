@@ -28,10 +28,11 @@ body, input[text] {
 }
 a {
   cursor: pointer;
+  text-decoration: none !important;
 }
 nav a {
   padding: 5px 10px;
-  text-decoration: none;
+  text-decoration:  none !important;
   margin-top: 10px;
   display: inline-block;
   background-color: #eee;
