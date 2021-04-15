@@ -1,0 +1,12 @@
+<h2>Nuspojave</h2>
+<!--
+  TODO - add classess to abstract different lists vaccines, side-effect
+  TODO - share classess between side effect and vaccine
+-->
+<ul class="vaccines">
+  <li *ngFor="let sideEffect of sideEffects" (click)="onSelect(sideEffect)" [class.selected]="sideEffect === selectedSideEffect">
+    <a routerLink="/side-effect/{{sideEffect.shortDescription}}">
+      <span class="badge">{{sideEffect.shortDescription}}</span>
+    </a>
+  </li>
+</ul>

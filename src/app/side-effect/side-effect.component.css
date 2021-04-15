@@ -1,0 +1,100 @@
+.vaccines {
+  list-style-type: none;
+  padding: 0;
+  width: 25em;
+}
+.vaccines li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  border-radius: 4px;
+  margin: 1rem 0rem;
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vaccines li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: .1em;
+}
+.vaccines li.selected {
+  background-color: black;
+  color: white;
+}
+.vaccines li.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+.vaccines li.selected:active {
+  background-color: black;
+  color: white;
+}
+.vaccines .badge {
+  display: inline-block;
+  font-size: large;
+  color: white;
+  background-color:#405061;
+  padding: 1rem;
+  border-radius: 4px 0 0 4px;
+  margin: 0;
+}
+
+.vaccines .badge-light {
+  display: inline-block;
+  font-size: large;
+  color: #405061;
+  background-color: inherit;
+  padding: 0.8rem;
+  border-radius: 4px 0 0 4px;
+  margin: 0;
+}
+
+.vaccines .badge-light-delete {
+  display: inline-block;
+  font-size: large;
+  color: white;
+  background-color:#405061;
+  padding: 0.8rem;
+  border-radius: 0px 4px 4px 0px;
+  margin: 0;
+  z-index: 10000 !important;
+}
+
+.vaccines .badge-light-delete:hover {
+  background-color: #505050;
+  color: white;
+}
+
+a {
+  width: 100%;
+  /* display: flex; */
+  /* justify-content: space-between;
+  align-items: center; */
+  text-decoration: none;
+}
+
+
+button {
+  padding: 5px 10px;
+  text-decoration:  none !important;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+  border: none;
+}
+
+button:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+
+button:active{
+  color: white;
+  background-color: #b0b2b4;
+}
+
+

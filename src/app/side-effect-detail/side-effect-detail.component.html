@@ -1,0 +1,8 @@
+<div *ngIf="sideEffect">
+  <h2>Kratki opis {{sideEffect.shortDescription}}</h2>
+  <div><span>Frekvencija u cijepljenoj populaciji: {{sideEffect.frequency}}%</span></div>
+  <div><span>Dugi opis: {{sideEffect.longDecription}}</span></div>
+</div>
+<nav>
+  <a (click)="backClicked()">go back</a>
+</nav>
