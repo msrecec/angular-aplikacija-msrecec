@@ -27,6 +27,11 @@ export class VaccineService {
       );
   }
 
+  /**
+   * TODO - add getVaccineBySuffix and getVaccineByType search methods to components
+   *
+   */
+
   addVaccine(vaccine: Vaccine): Observable<Vaccine> {
     return this.http.post<Vaccine>(this.vaccinesUrl, vaccine, this.httpOptions).pipe(
       tap((newVaccine: Vaccine) => console.log(`added vaccine w/ researchName=${newVaccine.researchName}`)),
