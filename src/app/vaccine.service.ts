@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Vaccine } from './vaccine';
 // import { VACCINES } from './mock-vaccines';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -36,6 +36,14 @@ export class VaccineService {
     return this.http.post<Vaccine>(this.vaccinesUrl, vaccine, this.httpOptions).pipe(
       tap((newVaccine: Vaccine) => console.log(`added vaccine w/ researchName=${newVaccine.researchName}`)),
       catchError(this.handleError<Vaccine>('addVaccine'))
+    )
+  }
+
+  getVaccineBySuffix(suffix: string): Observable<Vaccine> {
+    const url = `${this.vaccinesUrl}/`;
+    return this.http.get<Vaccine>(url, {...this.httpOptions, params: new HttpParams().set('suffix', suffix)}).pipe(
+      tap(_ => console.log(`fetched vaccine with suffix=${suffix}`)),
+      catchError(this.handleError<Vaccine>('getVaccineBySuffix'))
     )
   }
 
