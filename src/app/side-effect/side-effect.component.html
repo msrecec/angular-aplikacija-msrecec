@@ -8,6 +8,7 @@
     <a routerLink="/side-effect/{{sideEffect.shortDescription}}">
       <span class="badge">{{sideEffect.shortDescription}}</span>
     </a>
+    <span (click)="delete(sideEffect)" class="badge-light-delete">X</span>
   </li>
 </ul>
 
@@ -41,5 +42,18 @@
       </select>
     </label>
     <br />
-  <button>Unesi nuspojavu</button>
+  <button (click)="
+  add(shortDescription.value,
+  +frequency.value,
+  longDescription.value,
+  highPriority.selected ? highPriority.value :
+  mediumPriority.selected ? mediumPriority.value :
+  lowPriority.value);
+  shortDescription.value = '';
+  longDescription.value = '';
+  frequency.value = '';
+  highPriority.selected = true;
+  mediumPriority.selected = false;
+  lowPriority.selected = false;
+  ">Unesi nuspojavu</button>
 </div>

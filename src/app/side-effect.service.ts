@@ -26,12 +26,50 @@ export class SideEffectService {
       );
   }
 
-  getSideEffectsByShortDescription(shortDescription: String): Observable<SideEffect> {
+  /**
+   * Gets side effect by short description
+   *
+   * @param shortDescription
+   * @returns sideEffect by shortDescription
+   */
+
+  getSideEffectByShortDescription(shortDescription: String): Observable<SideEffect> {
     const url = `${this.sideEffectsUrl}/${shortDescription}`;
     return this.http.get<SideEffect>(url, this.httpOptions).pipe(
       tap(_ => console.log(`fetched side effects shortDescription=${shortDescription}`)),
       catchError(this.handleError<SideEffect>('getSideEffect'))
     )
+  }
+
+  /**
+   * Adds new Side Effect
+   *
+   * @param sideEffect
+   * @returns new SideEffect
+   */
+
+  addSideEffect(sideEffect: SideEffect): Observable<SideEffect> {
+    return this.http.post<SideEffect>(this.sideEffectsUrl, sideEffect, this.httpOptions).pipe(
+      tap((newSideEffect: SideEffect) => console.log(`added sideEffect w/ shortDescription=${newSideEffect.shortDescription}`)),
+      catchError(this.handleError<SideEffect>('addSideEffect'))
+    )
+  }
+
+  /**
+   * Deletes side effect by short description
+   *
+   * @param sideEffect
+   * @returns
+   */
+
+  deleteSideEffect(sideEffect: SideEffect | string): Observable<SideEffect> {
+    const shortDescription = typeof sideEffect === 'string' ? sideEffect : sideEffect.shortDescription;
+    const url = `${this.sideEffectsUrl}/${shortDescription}`;
+
+    return this.http.delete<SideEffect>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted sideEffect shortDescription=${shortDescription}`)),
+      catchError(this.handleError<SideEffect>('deleteSideEffect'))
+    );
   }
 
 
