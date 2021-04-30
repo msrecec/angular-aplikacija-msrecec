@@ -1,9 +1,9 @@
-.vaccines {
+.sideEffect {
   list-style-type: none;
   padding: 0;
   width: 25em;
 }
-.vaccines li {
+.sideEffect li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -15,24 +15,24 @@
   justify-content: space-between;
   align-items: center;
 }
-.vaccines li:hover {
+.sideEffect li:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
   left: .1em;
 }
-.vaccines li.selected {
+.sideEffect li.selected {
   background-color: black;
   color: white;
 }
-.vaccines li.selected:hover {
+.sideEffect li.selected:hover {
   background-color: #505050;
   color: white;
 }
-.vaccines li.selected:active {
+.sideEffect li.selected:active {
   background-color: black;
   color: white;
 }
-.vaccines .badge {
+.sideEffect .badge {
   display: inline-block;
   font-size: large;
   color: white;
@@ -42,7 +42,7 @@
   margin: 0;
 }
 
-.vaccines .badge-light {
+.sideEffect .badge-light {
   display: inline-block;
   font-size: large;
   color: #405061;
@@ -52,7 +52,7 @@
   margin: 0;
 }
 
-.vaccines .badge-light-delete {
+.sideEffect .badge-light-delete {
   display: inline-block;
   font-size: large;
   color: white;
@@ -63,7 +63,7 @@
   z-index: 10000 !important;
 }
 
-.vaccines .badge-light-delete:hover {
+.sideEffect .badge-light-delete:hover {
   background-color: #505050;
   color: white;
 }

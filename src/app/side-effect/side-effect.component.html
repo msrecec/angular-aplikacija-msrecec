@@ -3,10 +3,43 @@
   TODO - add classess to abstract different lists vaccines, side-effect
   TODO - share classess between side effect and vaccine
 -->
-<ul class="vaccines">
+<ul class="sideEffect">
   <li *ngFor="let sideEffect of sideEffects" (click)="onSelect(sideEffect)" [class.selected]="sideEffect === selectedSideEffect">
     <a routerLink="/side-effect/{{sideEffect.shortDescription}}">
       <span class="badge">{{sideEffect.shortDescription}}</span>
     </a>
   </li>
 </ul>
+
+<div>
+  <h3>Unesi novu nuspojavu</h3>
+  <div>
+    <label>Kratki opis:
+      <div>
+        <input #shortDescription />
+      </div>
+    </label>
+    <br />
+    <label>Frekvencija u populaciji:
+      <div>
+        <input type="number" min="0" #frequency />
+      </div>
+    </label>
+    <br />
+    <label for="sideEffect">Dugi opis:
+      <div>
+        <textarea #longDescription cols="23" rows="5"></textarea>
+      </div>
+    </label>
+    <br />
+    <label for="priority">Prioritet:
+      <br />
+      <select name="priority" id="priority">
+        <option #highPriority value="HIGH">HIGH</option>
+        <option #mediumPriority value="MEDIUM">MEDIUM</option>
+        <option #lowPriority value="LOW">LOW</option>
+      </select>
+    </label>
+    <br />
+  <button>Unesi nuspojavu</button>
+</div>
