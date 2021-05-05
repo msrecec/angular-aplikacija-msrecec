@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SideEffect } from '../side-effect';
+import { SideEffectService } from '../side-effect.service';
 import { Vaccine } from '../vaccine';
 import { VaccineService } from '../vaccine.service';
 
@@ -10,16 +12,22 @@ import { VaccineService } from '../vaccine.service';
 export class VaccinesComponent implements OnInit {
 
   vaccines: Vaccine[] = [];
+  sideEffects: SideEffect[] = [];
   selectedVaccine: Vaccine | undefined;
 
-  constructor(private vaccineService: VaccineService) { }
+  constructor(private vaccineService: VaccineService, private sideEffectService: SideEffectService) { }
 
   ngOnInit(): void {
     this.getVaccines();
+    this.getSideEffects();
   }
 
   getVaccines(): void {
     this.vaccineService.getVaccines().subscribe(vaccines => this.vaccines = vaccines);
+  }
+
+  getSideEffects(): void {
+    this.sideEffectService.getSideEffects().subscribe(sideEffects => this.sideEffects = sideEffects);
   }
 
   add(researchName: string, manufacturerName: string, vaccineType: string, requiredNumberOfShots: number, availableNumberOfShots: number , approved: boolean): void {

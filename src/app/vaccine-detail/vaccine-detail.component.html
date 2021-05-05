@@ -5,6 +5,10 @@
   <div *ngIf="vaccine.requiredNumberOfShots > 1"><span>Obavezno pričekati 3-4 tjedna između doza.</span></div>
 </div>
 <app-vaccine-info *ngIf="vaccine" [vaccine]="vaccine"></app-vaccine-info>
+<h3>Nuspojave prijavljene za ovo cijepivo</h3>
+<ul>
+  <li *ngFor="let sideEffect of sideEffects">{{sideEffect.shortDescription}} - {{sideEffect.frequency}}% cijepljenih prijavilo</li>
+</ul>
 <nav>
   <a (click)="backClicked()">go back</a>
 </nav>

@@ -26,6 +26,15 @@ export class SideEffectService {
       );
   }
 
+  getSideEffectsByResearchName(researchName: String): Observable<SideEffect[]> {
+    const url = `${this.sideEffectsUrl}?researchName=${researchName}`;
+    return this.http.get<SideEffect[]>(url)
+    .pipe(
+      tap(_ => console.log(`fetched side effects researchName=${researchName}`)),
+      catchError(this.handleError<SideEffect[]>('getSideEffect'))
+    )
+  }
+
   /**
    * Gets side effect by short description
    *
