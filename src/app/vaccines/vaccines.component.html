@@ -52,7 +52,7 @@
     <div>Nuspojave:
       <br />
       <div *ngFor="let sideEffect of sideEffects">
-        <label for="{{sideEffect.shortDescription}}">
+        <label (click)="onCheck(sideEffect.shortDescription)" for="{{sideEffect.shortDescription}}">
           {{sideEffect.shortDescription}}: <input type="checkbox" id="{{sideEffect.shortDescription}}" name="{{sideEffect.shortDescription}}" >
         </label>
       </div>

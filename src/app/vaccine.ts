@@ -5,4 +5,5 @@ export interface Vaccine {
   requiredNumberOfShots: number;
   availableNumberOfShots: number;
   approved: boolean;
+  sideEffects: string[];
 }

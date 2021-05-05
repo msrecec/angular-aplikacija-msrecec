@@ -14,6 +14,7 @@ export class VaccinesComponent implements OnInit {
   vaccines: Vaccine[] = [];
   sideEffects: SideEffect[] = [];
   selectedVaccine: Vaccine | undefined;
+  checkedSideEffects: string[] = [];
 
   constructor(private vaccineService: VaccineService, private sideEffectService: SideEffectService) { }
 
@@ -34,6 +35,7 @@ export class VaccinesComponent implements OnInit {
     researchName = researchName.trim();
     manufacturerName = manufacturerName.trim();
     vaccineType = vaccineType.trim();
+    const sideEffects = this.checkedSideEffects
 
     if(!researchName || !manufacturerName || !vaccineType || !requiredNumberOfShots || !availableNumberOfShots) {
       return;
@@ -43,11 +45,10 @@ export class VaccinesComponent implements OnInit {
       return;
     }
 
-    this.vaccineService.addVaccine({researchName, manufacturerName, vaccineType, requiredNumberOfShots, availableNumberOfShots, approved} as Vaccine)
+    this.vaccineService.addVaccine({ researchName, manufacturerName, vaccineType, requiredNumberOfShots, availableNumberOfShots, approved, sideEffects } as Vaccine)
       .subscribe(vaccine => {
         this.vaccines.push(vaccine);
       });
-
   }
 
   delete(vaccine: Vaccine | string): void {
@@ -57,6 +58,19 @@ export class VaccinesComponent implements OnInit {
 
   onSelect(vaccine: Vaccine): void {
     this.selectedVaccine = vaccine;
+  }
+
+  onCheck(shortDescription: string) {
+    const element = <HTMLInputElement>document.getElementById(shortDescription);
+    if(element) {
+      if(element.checked) {
+        this.checkedSideEffects.push(shortDescription);
+      } else {
+        this.checkedSideEffects = this.checkedSideEffects.filter((value, index, arr) => {
+          return value !== shortDescription;
+        })
+      }
+    }
   }
 
 }
