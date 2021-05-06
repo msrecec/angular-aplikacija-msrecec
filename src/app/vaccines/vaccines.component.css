@@ -78,6 +78,9 @@ a {
   text-decoration: none;
 }
 
+.vaccine__sidEffect__frequency {
+  width: 50px !important;
+}
 
 button {
   padding: 5px 10px;

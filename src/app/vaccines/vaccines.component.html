@@ -52,8 +52,11 @@
     <div>Nuspojave:
       <br />
       <div *ngFor="let sideEffect of sideEffects">
-        <label (click)="onCheck(sideEffect.shortDescription)" for="{{sideEffect.shortDescription}}">
-          {{sideEffect.shortDescription}}: <input type="checkbox" id="{{sideEffect.shortDescription}}" name="{{sideEffect.shortDescription}}" >
+        <label for="{{sideEffect.shortDescription}}">
+          {{sideEffect.shortDescription}}:
+          <br>
+          <input type="checkbox" id="{{sideEffect.shortDescription}}" name="{{sideEffect.shortDescription}}" >
+          Frekvencija u populaciji: <input class="vaccine__sidEffect__frequency" type="number" min="0" value="0" id="{{sideEffect.shortDescription}}frequency" name="{{sideEffect.shortDescription}}frequency" />
         </label>
       </div>
     </div>

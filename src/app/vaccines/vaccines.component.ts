@@ -14,7 +14,6 @@ export class VaccinesComponent implements OnInit {
   vaccines: Vaccine[] = [];
   sideEffects: SideEffect[] = [];
   selectedVaccine: Vaccine | undefined;
-  checkedSideEffects: string[] = [];
 
   constructor(private vaccineService: VaccineService, private sideEffectService: SideEffectService) { }
 
@@ -35,7 +34,6 @@ export class VaccinesComponent implements OnInit {
     researchName = researchName.trim();
     manufacturerName = manufacturerName.trim();
     vaccineType = vaccineType.trim();
-    const sideEffects = this.checkedSideEffects
 
     if(!researchName || !manufacturerName || !vaccineType || !requiredNumberOfShots || !availableNumberOfShots) {
       return;
@@ -44,6 +42,20 @@ export class VaccinesComponent implements OnInit {
     if(requiredNumberOfShots <= 0) {
       return;
     }
+
+    const sideEffects = this.sideEffects.map(s => {
+      const element = <HTMLInputElement>document.getElementById(s.shortDescription);
+      const frequency = <HTMLInputElement>document.getElementById(`${s.shortDescription}frequency`);
+      if(element&&element.checked&&frequency) {
+        s.frequency = +frequency.value;
+      }
+      return s;
+    }).filter(s => {
+      const element = <HTMLInputElement>document.getElementById(s.shortDescription);
+      return element&&element.checked;
+    });
+
+    sideEffects.map(s => console.log(s));
 
     this.vaccineService.addVaccine({ researchName, manufacturerName, vaccineType, requiredNumberOfShots, availableNumberOfShots, approved, sideEffects } as Vaccine)
       .subscribe(vaccine => {
@@ -58,19 +70,6 @@ export class VaccinesComponent implements OnInit {
 
   onSelect(vaccine: Vaccine): void {
     this.selectedVaccine = vaccine;
-  }
-
-  onCheck(shortDescription: string) {
-    const element = <HTMLInputElement>document.getElementById(shortDescription);
-    if(element) {
-      if(element.checked) {
-        this.checkedSideEffects.push(shortDescription);
-      } else {
-        this.checkedSideEffects = this.checkedSideEffects.filter((value, index, arr) => {
-          return value !== shortDescription;
-        })
-      }
-    }
   }
 
 }

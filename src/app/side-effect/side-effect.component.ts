@@ -23,20 +23,16 @@ export class SideEffectComponent implements OnInit {
     this.sideEffectService.getSideEffects().subscribe(sideEffects => this.sideEffects = sideEffects);
   }
 
-  add(shortDescription: string, frequency: number, longDescription: string, priority: string) {
+  add(shortDescription: string, longDescription: string, priority: string) {
     shortDescription = shortDescription.trim();
     longDescription = longDescription.trim();
     priority = priority.trim();
 
-    if(!shortDescription || !frequency || !longDescription || !priority) {
+    if(!shortDescription || !longDescription || !priority) {
       return;
     }
 
-    if(frequency <= 0) {
-      return;
-    }
-
-    this.sideEffectService.addSideEffect({shortDescription, frequency, longDescription, priority} as SideEffect)
+    this.sideEffectService.addSideEffect({shortDescription, longDescription, priority} as SideEffect)
       .subscribe(sideEffect => {
         this.sideEffects.push(sideEffect);
       })
