@@ -4,6 +4,7 @@
   <div><span>Prioritet: {{sideEffect.priority}}</span></div>
 </div>
 <div *ngIf="sideEffect">
+  <h3>Cijepiva s ovom nuspojavom</h3>
   <ul>
     <li *ngFor="let vaccine of sideEffect.vaccines">
       {{vaccine.researchName}}
