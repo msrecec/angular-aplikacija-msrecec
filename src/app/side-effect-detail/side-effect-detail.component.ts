@@ -28,7 +28,7 @@ export class SideEffectDetailComponent implements OnInit {
 
 
   getSideEffect(): void {
-    this.sideEffectService.getSideEffectByShortDescription(this.shortDescription).subscribe(s => this.sideEffect = s);
+    this.sideEffectService.getSideEffectAndVaccinesByShortDescription(this.shortDescription).subscribe(s => this.sideEffect = s);
   }
 
   ngOnInit(): void {

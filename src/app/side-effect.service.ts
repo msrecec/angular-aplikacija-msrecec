@@ -57,6 +57,21 @@ export class SideEffectService {
    * @returns sideEffect by shortDescription
    */
 
+  getSideEffectAndVaccinesByShortDescription(shortDescription: String): Observable<SideEffect> {
+    const url = `${this.sideEffectsUrl}/${shortDescription}?withVaccines=true`;
+    return this.http.get<SideEffect>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`fetched side effects shortDescription=${shortDescription}`)),
+      catchError(this.handleError<SideEffect>('getSideEffect'))
+    )
+  }
+
+  /**
+   * Gets side effect by short description
+   *
+   * @param shortDescription
+   * @returns sideEffect by shortDescription
+   */
+
   getSideEffectByLongDescription(longDescription: String): Observable<SideEffect[]> {
     const url = `${this.sideEffectsUrl}?longDescription=${longDescription}`;
     return this.http.get<SideEffect[]>(url, this.httpOptions).pipe(

@@ -3,6 +3,13 @@
   <div><span>Dugi opis: {{sideEffect.longDescription}}</span></div>
   <div><span>Prioritet: {{sideEffect.priority}}</span></div>
 </div>
+<div *ngIf="sideEffect">
+  <ul>
+    <li *ngFor="let vaccine of sideEffect.vaccines">
+      {{vaccine.researchName}}
+    </li>
+  </ul>
+</div>
 <nav>
   <a (click)="backClicked()">go back</a>
 </nav>
