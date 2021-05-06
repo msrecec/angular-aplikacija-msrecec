@@ -3,6 +3,9 @@
   TODO - add classess to abstract different lists vaccines, side-effect
   TODO - share classess between side effect and vaccine
 -->
+<h3>Pretraži po dugom opisu: </h3>
+<input #longDescription type="text">
+<button (click)="getSideEffectsByLongDescription(longDescription.value); longDescription.value='';">Pretraži</button>
 <ul class="sideEffect">
   <li *ngFor="let sideEffect of sideEffects" (click)="onSelect(sideEffect)" [class.selected]="sideEffect === selectedSideEffect">
     <a routerLink="/side-effect/{{sideEffect.shortDescription}}">

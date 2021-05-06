@@ -23,6 +23,15 @@ export class SideEffectComponent implements OnInit {
     this.sideEffectService.getSideEffects().subscribe(sideEffects => this.sideEffects = sideEffects);
   }
 
+  getSideEffectsByLongDescription(longDescription: string): void {
+    if(longDescription) {
+      this.sideEffectService.getSideEffectByLongDescription(longDescription).subscribe(sideEffects => {
+        this.sideEffects = sideEffects;
+        console.log(sideEffects);
+      });
+    }
+  }
+
   add(shortDescription: string, longDescription: string, priority: string) {
     shortDescription = shortDescription.trim();
     longDescription = longDescription.trim();
