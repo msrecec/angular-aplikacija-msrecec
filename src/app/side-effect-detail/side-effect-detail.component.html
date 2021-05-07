@@ -3,7 +3,7 @@
   <div><span>Dugi opis: {{sideEffect.longDescription}}</span></div>
   <div><span>Prioritet: {{sideEffect.priority}}</span></div>
 </div>
-<div *ngIf="sideEffect">
+<div *ngIf="sideEffect && sideEffect.vaccines.length > 0">
   <h3>Cijepiva s ovom nuspojavom</h3>
   <ul>
     <li *ngFor="let vaccine of sideEffect.vaccines">

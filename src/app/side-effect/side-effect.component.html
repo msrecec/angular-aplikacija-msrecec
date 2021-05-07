@@ -26,7 +26,7 @@
     <br />
     <label for="sideEffect">Dugi opis:
       <div>
-        <textarea #longDescription cols="23" rows="5"></textarea>
+        <textarea #longDescription2 cols="23" rows="5"></textarea>
       </div>
     </label>
     <br />
@@ -41,12 +41,12 @@
     <br />
   <button (click)="
   add(shortDescription.value,
-  longDescription.value,
+  longDescription2.value,
   highPriority.selected ? highPriority.value :
   mediumPriority.selected ? mediumPriority.value :
   lowPriority.value);
   shortDescription.value = '';
-  longDescription.value = '';
+  longDescription2.value = '';
   highPriority.selected = true;
   mediumPriority.selected = false;
   lowPriority.selected = false;
